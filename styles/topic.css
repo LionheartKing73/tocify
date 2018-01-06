@@ -1,0 +1,125 @@
+﻿
+    .topic {
+      font-size: 14px;
+      color: #666;
+    }
+    .topic h2, .topic h3, .topic h4 {
+      color: #333;
+      font-size: 100%;
+      font-weight: bold;
+    }
+    .topic h2 {
+      font-size: 1.75rem;
+      text-transform: uppercase;
+      color: #006098;
+      border-bottom: dotted 1px #2cb25c;
+      padding-bottom: 5px;
+    }
+    .topic h3 {
+      font-size: 1.55rem;
+    }
+    .topic h4 {
+      font-size: 1.35rem;
+      color: #777;
+    }
+    .topic .inline-image {
+      display: block;
+      padding: 5px;
+      margin: 20px auto;
+      border: solid 1px #ddd;
+      max-width: 50%;
+    }
+    .topic.viewer .bookmark {
+      height: 0px !important;
+    }
+    .topic.viewer .comment, .topic.viewer .stop {
+      display: none;
+    }
+    .topic .bookmark {
+      background-color: gold;
+      color: #fff;
+      padding: 0 3px;
+      margin-right: 5px;
+      float: left;
+    }
+    .topic .stop {
+      background-color: red;
+      color: #fff;
+      padding: 0 3px;
+    }
+    .topic .comment {
+      padding: 1px 3px;
+      background-color: limegreen;
+      color: #fff;
+      float: right;
+      font-size: 90%;
+      border-radius: 3px;
+    }
+
+
+.wri-grade {
+  position: relative;
+  width: 18px; 
+  height: 10.39px;
+  margin: 5.20px 0;
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: red;
+  margin-right: 5px;
+}
+.wri-grade:before,
+.wri-grade:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+}
+.wri-grade:before {
+  bottom: 100%;
+  border-bottom: 5.2px solid #ff0000;
+}
+.wri-grade:after {
+  top: 100%;
+  width: 0;
+  border-top: 5.2px solid #ff0000;
+}
+.wri-grade.dk.pos {
+  background-color:green;
+}
+.wri-grade.dk.pos:before, .wri-grade.dk.pos:after {
+  border-bottom-color: green;
+  border-top-color: green;
+}
+.wri-grade.pos.lt {
+  background-color:mediumseagreen;
+}
+.wri-grade.lt.pos:before, .wri-grade.lt.pos:after {
+  border-bottom-color: mediumseagreen;
+  border-top-color: mediumseagreen;
+}
+.wri-grade.neg {
+  background-color:red;
+}
+.wri-grade.dk.neg:before, .wri-grade.dk.neg:after {
+  border-bottom-color: red;
+  border-top-color: red;
+}
+.wri-grade.neg.lt {
+  background-color: orange;
+}
+.wri-grade.lt.neg:before, .wri-grade.lt.neg:after {
+  border-bottom-color: orange;
+  border-top-color: orange;
+}
+.wri-grade .wri-grade-text {
+  position: absolute;
+  width: 18px;
+  text-align: center;
+  line-height: 18px;
+  font-size: 11px;
+  top: -4.6px;
+  color: #fff;
+  font-weight: bold;
+}
+

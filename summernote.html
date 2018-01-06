@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Summernote Test</title>
+  <meta charset="utf-8" />
+  <link href="styles/bootstrap.css" rel="stylesheet">
+  <link href="styles/app.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.7/summernote.css" rel="stylesheet" />
+  <link href="../js/summernote/plugin/summernote-ext-faicon.css" rel="stylesheet" />
+  <link href="libs/summernote/summernote-bs3.css" rel="stylesheet" />
+
+  <link href="libs/select2/select2.css" rel="stylesheet" />
+  <link href="libs/select2/select2-bootstrap.min.css" rel="stylesheet" />
+  <style>
+    html, body {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <select class="select2" name="state">
+    <option value="AL">Alabama</option>
+    <option value="CA">California</option>
+    <option value="WY">Wyoming</option>
+  </select>
+
+  <div id="summernote"></div>
+
+  <script src="libs/jquery/jquery-1.8.3.min.js"></script>
+  <script src="libs/jqueryui/jquery-ui-1.9.1.custom.min.js"></script>
+  <script src="javascripts/bootstrap.js"></script>
+  <script src="libs/summernote/summernote.min.js"></script>
+  <script src="libs/select2/select2.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      $('#summernote').summernote({
+        height: "500px",
+        callbacks: {
+          onPaste: function (e) {
+            var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+            e.preventDefault();
+            document.execCommand('insertText', false, bufferText);
+          },
+          onBlur: function() {
+            $('#summernote').summernote('saveRange');
+          }
+        }
+      });
+
+      $('.select2').select2();
+
+    });
+
+    $('.select2').on("select2:select", function (e) {
+      var value = e.params.data.id;
+      var text = e.params.data.text;
+      var str = ' <a href="/app/reference?id=' + value + '" class="reference" title="' + text + '">[' + value + ']</a>';
+      $(this).val($(".select2 option:first").val());
+      //$('#txtTopicText').summernote('restoreRange')
+      $('#summernote').summernote('pasteHTML', str);
+    });
+
+
+  </script>
+</body>
+</html>
